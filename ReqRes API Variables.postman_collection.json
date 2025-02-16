@@ -1,0 +1,299 @@
+{
+	"info": {
+		"_postman_id": "e3b09a13-f6b6-4986-bb7e-15fc22dffb1d",
+		"name": "ReqRes API Variables",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29437836"
+	},
+	"item": [
+		{
+			"name": "GETRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Successful GET request\", () => {\r",
+							"  pm.expect(pm.response.code).to.be.oneOf([201,200]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is present\", () => {\r",
+							"  pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"console.log(pm.globals.get(\"userid_global\"));\r",
+							"\r",
+							"//global variable\r",
+							"pm.globals.unset(\"userid_global\",\"2\");\r",
+							"\r",
+							"//Environment variable\r",
+							"pm.environment.unset(\"userid_qa_env\",\"2\");\r",
+							"\r",
+							"//Collection Variable\r",
+							"pm.collectionVariables.unset(\"userid_collect\",\"2\");\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//local variable\r",
+							"pm.variables.set(\"url_local\",\"https://reqres.in\");\r",
+							"\r",
+							"//global variable\r",
+							"pm.globals.set(\"userid_global\",\"2\");\r",
+							"\r",
+							"//Environment variable\r",
+							"pm.environment.set(\"userid_qa_env\",\"2\");\r",
+							"\r",
+							"//Collection Variable\r",
+							"pm.collectionVariables.set(\"userid_collect\",\"2\");"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_local}}/api/users?page={{userid_global}}",
+					"host": [
+						"{{url_local}}"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "{{userid_global}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"  pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Successful GET request\", () => {\r",
+							"  pm.expect(pm.response.code).to.be.oneOf([201,200]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is present\", () => {\r",
+							"  pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 300ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"packages": {},
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"aman\",\r\n    \"job\":\"sdet\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_global}}/api/users",
+					"host": [
+						"{{url_global}}"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Successful GET request\", () => {\r",
+							"  pm.expect(pm.response.code).to.be.oneOf([201,200]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is present\", () => {\r",
+							"  pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json; charset=utf-8');\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 300ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"aman\",\r\n    \"job\":\"Sr sdet\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_global}}/api/users/567",
+					"host": [
+						"{{url_global}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"567"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"  pm.response.to.have.status(204);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Successful GET request\", () => {\r",
+							"  pm.expect(pm.response.code).to.be.oneOf([204,200]);\r",
+							"});\r",
+							"/*\r",
+							"pm.test(\"Content-Type header is present\", () => {\r",
+							"  pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type header is application/json\", () => {\r",
+							"  pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json; charset=utf-8');\r",
+							"});\r",
+							"*/\r",
+							"\r",
+							"pm.test(\"Response time is less than 300ms\", () => {\r",
+							"  pm.expect(pm.response.responseTime).to.be.below(300);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url_global}}/api/users/567",
+					"host": [
+						"{{url_global}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"567"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url_collect",
+			"value": "https://reqres.in",
+			"type": "string"
+		}
+	]
+}
