@@ -1,0 +1,50 @@
+{
+	"info": {
+		"_postman_id": "ff4275c3-8c6c-4562-9498-625278229d74",
+		"name": "PetStore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29437836"
+	},
+	"item": [
+		{
+			"name": "demo for import curl",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/xml"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 101,\r\n  \"username\": \"john\",\r\n  \"firstName\": \"av\",\r\n  \"lastName\": \"cd\",\r\n  \"email\": \"ac@gmail.com\",\r\n  \"password\": \"string\",\r\n  \"phone\": \"1234344\",\r\n  \"userStatus\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/user",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"user"
+					]
+				},
+				"description": "Generated from cURL: \r\ncurl -X 'POST' \\\r\n  'https://petstore.swagger.io/v2/user' \\\r\n  -H 'accept: application/xml' \\\r\n  -H 'Content-Type: application/json' \\\r\n  -d '{\r\n  \"id\": 101,\r\n  \"username\": \"john\",\r\n  \"firstName\": \"av\",\r\n  \"lastName\": \"cd\",\r\n  \"email\": \"ac@gmail.com\",\r\n  \"password\": \"string\",\r\n  \"phone\": \"1234344\",\r\n  \"userStatus\": 0\r\n}'"
+			},
+			"response": []
+		}
+	]
+}
